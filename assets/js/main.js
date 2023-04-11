@@ -8,22 +8,13 @@ createApp({
             emailsList: []
         }
     },
-    methods: {
-        generateEmail(response) {
-            this.email = response.data.response 
-            this.emailsList.push(this.email)
-        },
-
-    },
     mounted() {
-        //while (this.emailsList.length < this.emailsTotal) {
-            for(let i = 0; i < this.emailsTotal; i++){
-                axios
-                .get('https://flynn.boolean.careers/exercises/api/random/mail')
-                .then(response => {
-                    this.generateEmail(response)
-                })
-            }
-        //}
+        for(let i = 0; i < this.emailsTotal; i++){
+            axios
+            .get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then(response => {
+                this.emailsList.push(response.data.response)
+            })
+        }
     }
 }).mount('#app')
