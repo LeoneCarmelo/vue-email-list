@@ -16,11 +16,12 @@ createApp({
 
     },
     mounted() {
+        //while (this.emailsList.length < this.emailsTotal) {
             axios
             .get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then(response => {
                 this.generateEmail(response)
-
             })
+        //}
     }
 }).mount('#app')
