@@ -17,11 +17,13 @@ createApp({
     },
     mounted() {
         //while (this.emailsList.length < this.emailsTotal) {
-            axios
-            .get('https://flynn.boolean.careers/exercises/api/random/mail')
-            .then(response => {
-                this.generateEmail(response)
-            })
+            for(let i = 0; i < this.emailsTotal; i++){
+                axios
+                .get('https://flynn.boolean.careers/exercises/api/random/mail')
+                .then(response => {
+                    this.generateEmail(response)
+                })
+            }
         //}
     }
 }).mount('#app')
